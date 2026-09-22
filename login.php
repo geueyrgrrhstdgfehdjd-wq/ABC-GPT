@@ -8,7 +8,7 @@ if (isLoggedIn()) { header('Location: /dashboard.php'); exit; }
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>เข้าสู่ระบบ - BluezyGPT</title>
+    <title>เข้าสู่ระบบ - ABC GPT</title>
     <link rel="stylesheet" href="/assets/css/global.css">
     <link rel="stylesheet" href="/assets/css/auth.css">
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -21,7 +21,7 @@ if (isLoggedIn()) { header('Location: /dashboard.php'); exit; }
                 <img src="<?= FLOATING_IMAGE ?>" alt="Logo">
             </div>
             <h1>เข้าสู่ระบบ</h1>
-            <p class="sub">ยินดีต้อนรับกลับ</p>
+            <p class="sub">ยินดีต้อนรับกลับสู่ ABC GPT</p>
             <form id="loginForm">
                 <div class="fg">
                     <label><i data-lucide="user" class="icon icon-sm"></i> ชื่อผู้ใช้ / อีเมล</label>
