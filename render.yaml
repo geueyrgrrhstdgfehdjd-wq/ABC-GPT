@@ -11,4 +11,4 @@ services:
     rootDir: bot
     envVars:
       - key: DISCORD_TOKEN
-        value: YOUR_BOT_TOKEN
+        value: MTU1MTk1ODE2ODQwNDIzNDI4MA.Gl6sN3.EJVjdNHyU2d_IuWolCkvo9-8MpW6XZkAuszcz4
