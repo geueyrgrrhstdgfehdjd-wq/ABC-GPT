@@ -64,7 +64,7 @@ curl_setopt_array($ch, [
     CURLOPT_HTTPHEADER => [
         'Content-Type: application/json',
         'Authorization: Bearer ' . BLUEZY_API_KEY,
-        'x-bluezy-client: web'
+        'x-bluezy-client: opencode'
     ],
     CURLOPT_TIMEOUT => 120
 ]);
