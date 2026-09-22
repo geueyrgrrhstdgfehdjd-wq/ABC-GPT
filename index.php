@@ -8,7 +8,7 @@ if (isLoggedIn()) { header('Location: /dashboard.php'); exit; }
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BluezyGPT</title>
+    <title>ABC GPT</title>
     <link rel="stylesheet" href="/assets/css/global.css">
     <link rel="stylesheet" href="/assets/css/loading.css">
 </head>
@@ -18,7 +18,7 @@ if (isLoggedIn()) { header('Location: /dashboard.php'); exit; }
 
         <div class="hero-3d" id="hero3d">
             <div class="hero-img-box">
-                <img src="<?= FLOATING_IMAGE ?>" alt="BluezyGPT">
+                <img src="<?= FLOATING_IMAGE ?>" alt="ABC GPT">
                 <div class="ring r1"></div>
                 <div class="ring r2"></div>
                 <div class="ring r3"></div>
@@ -27,7 +27,7 @@ if (isLoggedIn()) { header('Location: /dashboard.php'); exit; }
 
         <div class="loader-info">
             <h1 class="brand">
-                <span>B</span><span>l</span><span>u</span><span>e</span><span>z</span><span>y</span><span>G</span><span>P</span><span>T</span>
+                <span>A</span><span>B</span><span>C</span><span>&nbsp;</span><span>G</span><span>P</span><span>T</span>
             </h1>
             <div class="progress-track">
                 <div class="progress-fill" id="progressFill"></div>
