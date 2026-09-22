@@ -1,0 +1,14 @@
+{
+  "name": "bluezygpt-discord-bot",
+  "version": "1.0.0",
+  "description": "BluezyGPT Discord Bot - Shop & Redeem",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "discord.js": "^14.16.3",
+    "better-sqlite3": "^11.6.0",
+    "dotenv": "^16.4.5"
+  }
+}
