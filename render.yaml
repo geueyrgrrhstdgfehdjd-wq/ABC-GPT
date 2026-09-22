@@ -4,8 +4,11 @@ services:
     runtime: docker
     plan: free
 
-  - type: web
+  - type: worker
     name: bluezygpt-bot
     runtime: node
     plan: free
     rootDir: bot
+    envVars:
+      - key: DISCORD_TOKEN
+        value: YOUR_BOT_TOKEN
