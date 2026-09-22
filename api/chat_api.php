@@ -50,30 +50,52 @@ $hist->execute([$uid]);
 $messages = array_reverse($hist->fetchAll());
 
 // เรียก BluezyGPT API
-$payload = [
+$payload = json_encode([
     'model' => $model,
     'messages' => $messages,
     'stream' => false
-];
+]);
 
-$ch = curl_init(BLUEZY_API_URL . '/chat/completions');
+$apiUrl = BLUEZY_API_URL . '/chat/completions';
+
+$ch = curl_init();
 curl_setopt_array($ch, [
+    CURLOPT_URL => $apiUrl,
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_POST => true,
-    CURLOPT_POSTFIELDS => json_encode($payload),
+    CURLOPT_POSTFIELDS => $payload,
     CURLOPT_HTTPHEADER => [
         'Content-Type: application/json',
         'Authorization: Bearer ' . BLUEZY_API_KEY,
         'x-bluezy-client: opencode'
     ],
-    CURLOPT_TIMEOUT => 120
+    CURLOPT_TIMEOUT => 120,
+    CURLOPT_SSL_VERIFYPEER => false,
+    CURLOPT_SSL_VERIFYHOST => 0
 ]);
+
 $resp = curl_exec($ch);
 $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+$curlError = curl_error($ch);
 curl_close($ch);
 
+// ถ้า cURL error
+if ($curlError) {
+    echo json_encode(['success' => false, 'message' => 'เชื่อมต่อ API ไม่ได้: ' . $curlError]);
+    exit;
+}
+
+// ถ้าไม่ใช่ 200 แสดง error จริงจาก API
 if ($code !== 200) {
-    echo json_encode(['success' => false, 'message' => 'AI ตอบกลับไม่ได้ (' . $code . ')']);
+    $errorDetail = json_decode($resp, true);
+    $errorMsg = $errorDetail['error']['message'] 
+             ?? $errorDetail['message'] 
+             ?? $errorDetail['error'] 
+             ?? $resp;
+    echo json_encode([
+        'success' => false, 
+        'message' => 'API Error (' . $code . '): ' . (is_string($errorMsg) ? $errorMsg : json_encode($errorMsg, JSON_UNESCAPED_UNICODE))
+    ]);
     exit;
 }
 
