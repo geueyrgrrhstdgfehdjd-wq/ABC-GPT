@@ -10,7 +10,7 @@ resetDailyFree($user['id']);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat - BluezyGPT</title>
+    <title>Chat - ABC GPT</title>
     <link rel="stylesheet" href="/assets/css/global.css">
     <link rel="stylesheet" href="/assets/css/chat.css">
     <script src="https://unpkg.com/lucide@latest"></script>
